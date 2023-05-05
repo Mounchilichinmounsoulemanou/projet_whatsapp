@@ -486,6 +486,9 @@ margin-left: 100px;
     right: 67.5%;
     z-index: 1033;
 }
+.menu #contact{
+    margin-top: 0;
+}
 .menu ul li{
     font-size: 1.3rem;
     padding: 15px 40px;
