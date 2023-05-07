@@ -21,10 +21,7 @@ header{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-/* .content-left{
-    width: 500px;
-    max-width: 500px;
-} */
+
 .content-left-header{
     position: fixed;
     top: -1px;
@@ -543,15 +540,116 @@ margin-left: 100px;
     margin-left: 30px;
     color: var(--main-color);
     background-color: var(--main-color-a);
-}
-
-/*********************** MEDIAS *****************/
-
-@media (max-width: 1400px) {
     
 }
 
-@media (max-width: 1200px) {
+/*********************** ANIMATION *****************/
+
+.transitionIn{
+    transition: all linear;
+    animation: slideInLeft 200ms linear;
+}
+@keyframes slideInLeft {
+    0% {
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0);
+        visibility: visible;
+    }
+    
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+}
+
+.transitionOut{
+    transition: all linear;
+    animation: slideOutRight 200ms linear;
+}
+
+@-webkit-keyframes slideOutRight {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    to {
+        visibility: hidden;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+
+    to {
+        visibility: hidden;
+        -webkit-transform: translate(-100%, 0);
+        transform: translate(-100%, 0)
+    }
+}
+
+
+/*********************** MEDIAS *****************/
+
+@media (max-width: 1670px) {
+    .content-r .content-right{
+        width: 100%;
+       } 
+    .content-message-item{
+        width: 750px;
+        padding: 0 5px;
+        margin: 0 auto;
+    }
+    #home .content-left-search input{
+        padding-left: 30px;
+    }
+    #home .content-left-search .bi-search{
+        left: 0;
+    }
+
+
+    .content-message-item{
+        padding: 0 5px;
+       }
+       .receiver-message-voice{
+        width: 300px;
+       }
+       .point-play{
+        left: 25px;
+       }
+       .receiver-message-voice .fa-play{
+        padding: 0 5px;
+       }
+       .receiver-message-voice i{
+        width: 15px;
+       }
+       .receiver-message-image .receiver-image{
+        width: 300px;
+       }
+       .sender-message-text{
+        width: 300px;
+        margin-top: 5px;
+    }
+       .voice-time{
+        right: 10px;
+        }
+       .voice-time i{
+        font-size: 1.2rem;
+        }
+       .voice-time p{
+        font-size: 0.95rem;
+        }
+        .message-text-reply{
+            width: 300px;
+        }
+}
+
+@media (max-width: 1300px) {
     /* LEFT CONTENT PROFIL */
     #profil .profile .profil-picture{
         left: 15%;
@@ -596,34 +694,9 @@ margin-left: 100px;
     .message-text-reply{
         width: 300px;
     }
-}
-/* 
-@media (max-width: 992px) {
-
-}
- */
-/* @media (max-width: 768px) {
-    
-    .content-l{
-        display: none;
-        
-    }
-    .content-message-item{
-        width: 600px;
-        padding: 0 2px;
-        margin: 0 auto;
-    }
-} */
-
-@media (max-width: 1200px) {
     .container{
         width: 100%;
     }
-    /********** CONTENT LEFT ********/
-    
-
-
-    /********** CONTENT RIGHT ********/
     .content-r{
         width: 100%;
     }
@@ -666,10 +739,6 @@ margin-left: 100px;
         font-size: 0.8rem;
     }
 }
-
-/* @media (max-width: 992px) {
-    
-} */
 
 @media (max-width: 992px) {
     .container{
@@ -714,6 +783,11 @@ margin-left: 100px;
     }
     #profil .option-item h4{
         font-size: 1.1rem;
+    }
+
+    /* MENU  */
+    .menu{
+        right: 2%;
     }
 
     /*  */
@@ -776,6 +850,30 @@ margin-left: 100px;
     .content-message-item{
         width: 400px;
     }
+
+    .signup-item{
+        background-color: var(--main-color);
+        width: 400px;
+        padding: 5px;
+    }
+    .signup-item h3{
+        font-size: 1.4rem;
+    }
+    .signup-item p{
+        font-size: 1.0rem;
+    }
+    .signup-btn{
+        padding-top: 10px;
+        text-align: center;
+    }
+    .signup-item button{
+        font-size: 1.1rem;
+        padding: 10px;
+    }
+    .signup-item button.btn2{
+        margin-left: 0;
+        
+    }
 }
 
 @media (max-width: 530px) {
@@ -819,6 +917,12 @@ margin-left: 100px;
     }
     .receiver-message{
         float: left;
+    }
+
+    .signup-item{
+        background-color: var(--main-color);
+        width: 300px;
+        padding: 5px;
     }
     
 }

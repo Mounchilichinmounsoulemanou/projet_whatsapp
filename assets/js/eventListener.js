@@ -14,23 +14,44 @@ window.onload=()=>{
     var menuEtiquette = document.getElementById('menu-etiquette')
     var menuSignup = document.getElementById('menu-signup')
     var signup = document.getElementById('signup')
+    var cancelBtn = document.getElementById('cancel-btn')
+    var signupBtn = document.getElementById('signup-btn')
     var contentMessage = document.getElementById('content-message')
     var contentRight = document.getElementById('content-right')
     var backIcons = document.querySelectorAll('.fa-arrow-left')
     var contentHome = document.querySelectorAll('.content-home')
     var contentItems = document.querySelectorAll('.content-items')
+    // var contentLeft = document.querySelectorAll('.content-option')
+    var contentLeft = document.querySelector('.content-l')
+    var content = document.querySelector('.contents')
+
+    var slideIn = ()=>{
+        contentLeft.classList.toggle('transitionIn')
+    }
+
+    // var slideOut = ()=>{
+    //     contentLeft.classList.toggle('transitionOut')
+    // }
     
     /* BAR MENU HOME */
 
     menuAffiche.onclick=()=>{
             menu.classList.toggle('none')
     }
+    menu.onmouseleave=()=>{
+        if(menu.classList.add('none')){
+            menu.classList.add('none')
+        }
+    }
     newEmail.onclick=()=>{
-            contact.classList.toggle('none')
-            home.classList.add('none')
+        slideIn()
+        contact.classList.toggle('none')
+        home.classList.add('none')
+       
     }
     profilImage.forEach(image => {
         image.onclick=()=>{
+            slideIn()
             profil.classList.toggle('none')
             home.classList.toggle('none')
         }
@@ -45,7 +66,9 @@ window.onload=()=>{
             parametre.classList.add('none')
             etiquette.classList.add('none')
             home.classList.toggle('none')
-            
+            slideIn()
+            // slideOut()
+             
         }
         
     });
@@ -75,23 +98,38 @@ window.onload=()=>{
         profil.classList.toggle('none')
         home.classList.add('none')
         menu.classList.add('none')
+        slideIn()
     }
     menuContact.onclick=()=>{
         contact.classList.toggle('none')
         home.classList.add('none')
         menu.classList.add('none')
+        slideIn()
     }
     menuParametre.onclick=()=>{
         parametre.classList.toggle('none')
         home.classList.add('none')
         menu.classList.add('none')
+        slideIn()
     }
     menuEtiquette.onclick=()=>{
         etiquette.classList.toggle('none')
         home.classList.add('none')
         menu.classList.add('none')
+        slideIn()
     }
     menuSignup.onclick=()=>{
-        signup.classList.toggle('none')
+        signup.classList.remove('none')
     }
+    
+    /* BUTTON */
+    cancelBtn.onclick=()=>{
+        signup.classList.add('none')
+    }
+    signupBtn.onclick=()=>{
+        content.classList.add('none')
+    }
+
 }
+
+
