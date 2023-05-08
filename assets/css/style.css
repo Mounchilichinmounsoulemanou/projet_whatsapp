@@ -793,12 +793,9 @@ margin-left: 100px;
     /*  */
     .content-r{
         display: none;
-        
-    }
-
-    .content-r{
         width: 100%;
     }
+
     .content-message-item{
         width: 600px;
         padding: 0 2px;

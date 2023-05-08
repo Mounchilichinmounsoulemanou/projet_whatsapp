@@ -23,11 +23,75 @@ window.onload=()=>{
     var contentItems = document.querySelectorAll('.content-items')
     // var contentLeft = document.querySelectorAll('.content-option')
     var contentLeft = document.querySelector('.content-l')
+    var contentR = document.querySelector('.content-r')
     var content = document.querySelector('.contents')
 
     var slideIn = ()=>{
         contentLeft.classList.toggle('transitionIn')
     }
+
+    var showMessage = ()=>{
+        var screenLength = window.screen.width
+        if(screenLength <= 992){
+            contentLeft.style.display = 'none'
+            contentR.style.display = 'block'
+        }
+
+    }
+
+    // DU FICHIER JSON
+
+    var appUser = '/assets/js/users.json'
+    var userItems = document.querySelector('.content-body-users')
+
+    var getUsers = async()=>{
+        var response = await fetch(appUser)
+        if(!response.ok){
+            throw new error("")
+        }
+        var users = await response.json()
+        return users
+    }
+
+    var userData = async()=>{
+        var data = await getUsers()
+        userItems ? userItems.innerHTML= '': null
+        data.forEach(user => {
+           var users = `
+            <div class="content-left-item content-home flex jcsb aic pr-20">
+                                        <div class="profile-sender flex aic">
+                                            <div class="profile-image">
+                                            <img src="${user.imageURL}" alt="">
+                                            </div>
+                                            <div class="profile-details">
+                                                <h3>${user.nom}</h3>
+                                                <p>${user.contentChat}</p>
+                                            </div>
+                                        </div>
+                                        <div class="time-message-receive">
+                                            <h4>
+                                                ${user.receiveTime}
+                                            </h4>
+                                           <p>
+                                                ${user.count}
+                                           </p>
+                                        </div>
+                                    </div>
+            `
+            userItems.innerHTML += users
+            userItems.onclick=()=>{
+                console.log('Bonjourppppp');
+                if(contentMessage.classList.toggle('none')){
+                    contentMessage.classList.remove('none')
+                }else{
+                    contentRight.classList.add('none')
+                }
+                showMessage()
+            }
+        });
+        
+    }
+    userData()
 
     // var slideOut = ()=>{
     //     contentLeft.classList.toggle('transitionOut')
@@ -79,16 +143,20 @@ window.onload=()=>{
         content.onclick=()=>{
             if(contentMessage.classList.toggle('none')){
                 contentMessage.classList.remove('none')
+            }else{
+                contentRight.classList.add('none')
             }
-            contentRight.classList.add('none')
+            showMessage()
         }
     });
     contentItems.forEach(content => {
         content.onclick=()=>{
             if(contentMessage.classList.toggle('none')){
                 contentMessage.classList.remove('none')
+            }else{
+                contentRight.classList.add('none')
             }
-            contentRight.classList.add('none')
+            showMessage()
         }
     });
 
@@ -130,6 +198,7 @@ window.onload=()=>{
         content.classList.add('none')
     }
 
+    
 }
 
 
